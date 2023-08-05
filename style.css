@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+:root {
+  --orange: #ff7800;
+  --black: #130f40;
+  --light-color: #666;
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  --border: .2rem solid rgba(0, 0, 0, 1);
+  --outline: .1rem solid rgba(0, 0, 0, .1);
+  --outline-hover: .2rem solid var(--black);
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  /* text-transform: capitalize; */
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  background: #ffffff;
+}
+
+main {
+  padding: 2rem 9%;
+}
+
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  padding: 2rem 0;
+  padding-bottom: 3rem;
+  font-size: 3.5rem;
+  color: var(--black);
+}
+
+.heading span {
+  background: var(--orange);
+  font-size: #fff;
+  display: inline-block;
+  padding: .5rem 3rem;
+  clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.btn {
+  align-items: center;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .8rem 3rem;
+  font-size: 1.7rem;
+  border-radius: .5rem;
+  border: .2rem solid var(--black);
+  background: #fff;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  background: #fff;
+  box-shadow: var(--black);
+}
+
+.header-container .logo {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header-container .logo i {
+  color: var(--orange);
+}
+
+.header-container .navbar a {
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: var(--black);
+}
+
+.header-container .navbar a:hover {
+  color: var(--orange);
+}
+
+.header-container .buttons div {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: .5rem;
+  background-color: #eee;
+  color: var(--black);
+  font-size: 2rem;
+  margin-right: .3rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-container .buttons div:hover {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+#menu-btn {
+  display: none;
+}
+
+
+.header-container .location {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+}
+
+.header-container .location.active {
+  right: 2rem;
+  transition: .4s linear;
+  ;
+}
+
+.header-container .contact {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+}
+
+.header-container .contact.active {
+  right: 2rem;
+  transition: .4s linear;
+  ;
+}
+
+.header-container .contact h1 {
+  text-align: center;
+  font-size: 2rem;
+  /* position: absolute; */
+  letter-spacing: .3rem;
+}
+
+.header-container .contact h1:before {
+  /* position: absolute; */
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 30px;
+  height: .4rem;
+  background-color: var(--black);
+}
+
+.header-container .contact h1+p {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.header-container .contact h1+p a {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.header-container .contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 70rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.header-container .contact form input {
+  display: block;
+}
+
+.header-container .contact form input:not(input[type="button"], input[type="submit"]) {
+  height: 4.5rem;
+  width: 100%;
+  border-radius: .2rem;
+  border: 1px solid rgba(132, 132, 132, 0.67);
+  margin: .60rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+.header-container .contact form input:not(input[type="button"], input[type="submit"]):focus,
+.header-container .content form textarea:focus {
+  outline: .1rem solid var(--black);
+}
+
+.header-container .contact form textarea {
+  width: 100%;
+  height: 10rem;
+  resize: none;
+  margin: .60rem auto;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: .1rem solid rgba(132, 132, 132, 0.67);
+}
+
+.header-container .contact form>div {
+  max-width: 70rem;
+  width: 100%;
+  position: relative;
+}
+
+.header-container .contact form>div:before {
+
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: -1.1rem;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
+  z-index: 1;
+}
+
+.header-container .contact form>button:last-child {
+  align-self: flex-end;
+  max-width: 20rem;
+  width: 100%;
+  height: 4rem;
+  border: .1rem solid var(--black);
+  background-color: var(--orange);
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+.header-container .shopping-cart {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  width: 30rem;
+  background: #fff;
+}
+
+.header-container .shopping-cart.active {
+  right: 2rem;
+  transition: .4s linear;
+  ;
+}
+
+.header-container .shopping-cart .box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.header-container .shopping-cart .box img {
+  height: 5rem;
+}
+
+.header-container .shopping-cart .box .fa-trash {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  cursor: pointer;
+  color: var(--light-color);
+  transform: translateY(-50%);
+}
+
+.header-container .shopping-cart .box .fa-trash:hover {
+  color: var(--orange);
+}
+
+.header-container .shopping-cart .box .content h3 {
+  color: var(--black);
+  font-size: 1.7rem;
+  padding-bottom: 1rem;
+}
+
+.header-container .shopping-cart .box .content span {
+  color: var(--light-color);
+  font-size: 1.6rem;
+}
+
+.header-container .shopping-cart .box .content .quantity {
+  padding: 2rem;
+}
+
+.header-container .shopping-cart .total {
+  font-size: 2rem;
+  padding: 1rem 0;
+  text-align: right;
+  color: var(--black);
+}
+
+.header-container .shopping-cart .btn {
+  display: block;
+  text-align: center;
+  margin: 1rem;
+}
+
+/* home css stars */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/image/banner.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* filter: ; */
+  padding-top: 15rem;
+  padding-bottom: 20rem;
+}
+
+.home .content {
+  text-align: center;
+  width: 60rem;
+
+}
+
+.home .content h3 {
+  color: var(--black);
+  font-size: 6rem;
+  font-size: bold;
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.home .content h3 span {
+  color: var(--orange);
+}
+
+.home .content p {
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: var(--black);
+  color: #fff;
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+/* home css ends */
+
+/* products css starts */
+.products .product-slider {
+  padding: 1rem;
+}
+
+.products .product-slider:first-child {
+  margin-bottom: 2rem;
+}
+
+.products .product-slider .box {
+  background: #fff;
+  border-radius: .5rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  outline-offset: -1rem;
+  outline: var(--outline);
+  box-shadow: var(--box-shadow);
+  transition: .2s linear;
+}
+
+.products .product-slider .box:hover {
+  outline-offset: 0rem;
+  outline: var(--outline-hover);
+}
+
+.products .product-slider .box img {
+  height: 15rem;
+}
+
+.products .product-slider .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.products .product-slider .box .price {
+  font-size: 2rem;
+  color: var(--light-color);
+  padding: .5rem 0;
+}
+
+
+.products .product-slider .box .stars i {
+  font-size: 1.7rem;
+  color: var(--orange);
+  padding: .5rem 0;
+}
+
+/* products css ends */
+
+/* categories css starts */
+.categories .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+
+.categories .box-container .box {
+  padding: 3rem 2rem;
+  border-radius: .5rem;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  outline: var(--outline);
+  outline-offset: -1rem;
+  text-align: center;
+}
+
+.categories .box-container .box:hover {
+  outline: var(--outline-hover);
+  outline-offset: 0rem;
+}
+
+.categories .box-container .box img {
+  margin: 1rem 0;
+  height: 15rem;
+}
+
+.categories .box-container .box h3 {
+  font-size: 2rem;
+  color: var(--black);
+  line-height: 1.8;
+}
+
+.categories .box-container .box p {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+/* categories css ends */
+
+/* about css starts */
+.about-container {
+  padding: 2rem;
+  max-width: 968rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+  gap: 1.5rem;
+  align-items: center;
+}
+
+
+.about-container .about-text h3 {
+  font-size: 2.5rem;
+  color: var(--orange);
+}
+
+
+.about-container p {
+  margin: 0.5rem 0 1rem;
+  color: var(--black);
+  font-size: 1.7rem;
+  line-height: 1.8;
+}
+
+/* abaout css ends */
+
+/* footer css starts */
+
+.footer {
+  background-color: #fff;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem
+}
+
+.footer .box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box i {
+  color: var(--orange);
+}
+
+
+.footer .box-container .box .links {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box .links i {
+  color: var(--orange);
+  padding-right: .5rem;
+}
+
+.footer .box-container .box .links:hover i {
+  padding-right: 2rem;
+}
+
+.footer .box-container .box p {
+  line-height: 1.8;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box .share a {
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  border-radius: .5rem;
+  font-size: 2rem;
+  color: var(--black);
+  margin-left: .2rem;
+  background: #eee;
+  text-align: center;
+}
+
+.footer .box-container .box .share a:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+.footer .box-container .box .email {
+  width: 100%;
+  margin: .7rem 0;
+  padding: 1rem;
+  border-radius: .5rem;
+  background: #eee;
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: none;
+}
+
+/* footer css ends */
+
+
+
+/* media queries 
+ menu hambuger for mobile */
+@media (max-width:991px) {
+
+  html {
+    font-size: 55%;
+  }
+
+  .header-container {
+    padding: 2rem;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  #menu-btn {
+    display: inline-block;
+  }
+
+  .header-container .navbar {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    width: 30rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: #fff;
+  }
+
+  .header-container .navbar.active {
+    right: 2rem;
+    transition: .4s linear;
+  }
+
+  .header-container .navbar a {
+    font-size: 2rem;
+    margin: 2rem 2.5rem;
+    display: block;
+  }
+
+  .header-container .location {
+    position: absolute;
+    top: 110%;
+    right: -120%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+  }
+
+  .header-container .location.active {
+    right: 0rem;
+    transition: .4s linear;
+    ;
+  }
+
+  .header-container .contact {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+  }
+
+  .header-container .contact.active {
+    right: .5rem;
+    transition: .4s linear;
+    ;
+  }
+
+  .header-container .shopping-cart {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 30rem;
+    background: #fff;
+  }
+
+  .header-container .shopping-cart.active {
+    right: 2rem;
+    transition: .4s linear;
+    ;
+  }
+
+}
+
+@media (max-width:450px) {
+
+  html {
+    font-size: 50%;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+}
+
+/* form css starts */
+
+
+/* select menu  */
+.select-menu .select-btn {
+  display: flex;
+  height: 4.5rem;
+  background: #fff;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  border: 1px solid rgba(132, 132, 132, 0.67);
+  border-radius: .2rem;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: relative;
+  padding: 20px;
+  margin-top: .2rem;
+
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--light-color);
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 4.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2;
+  border-radius: .2rem;
+  align-items: center;
+  background: #fff;
+}
+
+.options .option:hover {
+  background: var(--orange);
+}
+
+.option .option-text {
+  font-size: 1.6rem;
+  color: black;
+}
+
+
+
+
+/* checkbox  */
+.checkbox-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-main label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.checkbox-main .checkbox {
+  width: 16px;
+  height: 16px;
+  border: .2rem solid var(--light-color);
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.checkbox-main .checkbox.checked {
+  background-color: var(--orange);
+}
+
+/* radio button */
+.radio-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: .2rem solid var(--light-color);
+  margin-right: .60rem;
+}
+
+.radio-option.selected .radio-inner {
+  background-color: var(--orange);
+}
+
+label {
+  font-size: 1.6rem;
+}
+
+/* form css ends */

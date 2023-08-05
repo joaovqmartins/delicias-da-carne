@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Delícias das Carnes Exóticas</title>
+
+  <!-- Swiper CSS link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <!-- CSS file link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+  <!-- header section stars -->
+  <header class="header-container">
+    <a href="#" class="logo">
+      <i class="fas fa-shopping-basket"></i> Delícias da carne
+    </a>
+
+    <nav class="navbar">
+      <a href="#home">Início</a>
+      <a href="#categories">Categorias</a>
+      <a href="#products">Produtos</a>
+      <a href="#about">Quem Somos</a>
+    </nav>
+
+    <div class="buttons">
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <div class="fas fa-location" id="location-btn"></div>
+      <div class="fas fa-message" id="message-btn"></div>
+      <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <div class="location">
+      <div class="map">
+        <div class="content">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.880115733358!2d-43.19594418543752!3d-22.954641845350253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fe09f028e33%3A0x26e83ef7e4032ed2!2sDel%C3%ADcias%20da%20Carne%20Ex%C3%B3ticas%20e%20Cortes%20Argentinos%20e%20Uruguaios!5e0!3m2!1spt-BR!2sbr!4v1671995898273!5m2!1spt-BR!2sbr"
+            width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="content">
+        <h1>ENTRE EM CONTATO CONOSCO</h1>
+        <p>
+          Preencha o formulário ou envie sua mensagem diretamente para o
+          email:
+          <a href="mail.to:deliciasdacarne@gmail.com">
+            deliciasdacarne@gmail.com</a>
+        </p>
+
+        <form onsubmit="validate(this)">
+          <input type="text" id="name" placeholder="Nome" />
+          <input type="text" id="email" placeholder="E-mail" />
+          <input type="text" id="telephone" placeholder="Telefone" />
+
+          <div data-lenght="0">
+            <textarea id="textarea" maxlenght="300" placeholder="Mensagem"></textarea>
+          </div>
+
+          <!-- form select -->
+          <div class="select-menu">
+            <div class="select-btn">
+              <span class="sBtn-text">Preferência de carnes</span>
+              <i class="bx bx-chevron-down"></i>
+            </div>
+            <ul class="options">
+              <li class="option">
+                <span class="option-text">Bovina</span>
+              </li>
+              <li class="option">
+                <span class="option-text">Suína</span>
+              </li>
+              <li class="option">
+                <span class="option-text">Aves</span>
+              </li>
+              <li class="option">
+                <span class="option-text">Frutos do mar</span>
+              </li>
+              <li class="option">
+                <span class="option-text">Veganos</span>
+              </li>
+              <li class="option">
+                <span class="option-text">Outros</span>
+              </li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <br>
+
+
+          <!-- checkbox -->
+          <h3>Escolha um meio de contato:</h3>
+          <div class="checkbox-main">
+            <label>
+              <span class="checkbox"></span>
+              Todos os meios
+            </label>
+            <label>
+              <span class="checkbox"></span>
+              Email
+            </label>
+            <label>
+              <span class="checkbox"></span>
+              SMS
+            </label>
+          </div>
+          <!-- checkbox -->
+
+
+          <!-- radio  -->
+          <h3>Marque a sua preferencia:</h3>
+          <div class="radio">
+            <div class="radio-option" onclick="selectOption(1)">
+              <div class="radio-inner"></div>
+              <label>Ambas</label>
+            </div>
+            <div class="radio-option" onclick="selectOption(2)">
+              <div class="radio-inner"></div>
+              <label>Carnes Tradicionais</label>
+            </div>
+            <div class="radio-option" onclick="selectOption(3)">
+              <div class="radio-inner"></div>
+              <label>Carnes Exóticas</label>
+            </div>
+          </div>
+          <!--  -->
+
+          <button>Enviar</button>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="shopping-cart">
+      <div class="box">
+        <i class="fas fa-trash"></i>
+        <img src="/image/carne1.png" alt="Chorizo" />
+        <div class="content">
+          <h3>Chorizo</h3>
+          <span class="price">R$110,00/-</span>
+          <span class="quantity">qnt : 1</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <i class="fas fa-trash"></i>
+        <img src="/image/carne-exotica1.png" alt="Aveztruz" />
+        <div class="content">
+          <h3>Aveztruz</h3>
+          <span class="price">R$70,00/-</span>
+          <span class="quantity">qnt : 1</span>
+        </div>
+      </div>
+
+      <div class="total">total: R$180,00/-</div>
+      <a href="#" class="btn">Finalizar</a>
+    </div>
+  </header>
+  <!-- header section end -->
+
+  <!-- main section stars -->
+  <main class="home" id="home">
+    <div class="content">
+      <h3>Carnes de <span>alta qualidade</span> exclusivamente para você!</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+        quibusdam qui pariatur aliquid. Nostrum porro necessitatibus
+        reiciendis quisquam, illo at, perferendis sed laboriosam possimus
+        exercitationem atque doloremque ullam. Earum, vitae!
+      </p>
+      <a href="#prducts" class="btn">shop now</a>
+    </div>
+  </main>
+  <!-- main section ends -->
+
+  <!-- categories section starts -->
+  <section class="categories" id="categories">
+    <h1 class="heading">Categorias dos <span>Produtos</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="/image/carne-normal.png" alt="Cortes Normais" />
+        <h3>Cortes Normais</h3>
+        <p>45% off</p>
+        <a href="#" class="btn">compre agora</a>
+      </div>
+
+      <div class="box">
+        <img src="/image/carne-exoticas.png" alt="Cortes Exóticos" />
+        <h3>Cortes Exóticos</h3>
+        <p>45% off</p>
+        <a href="#" class="btn">compre agora</a>
+      </div>
+
+      <div class="box">
+        <img src="/image/carne-frutosdomar.png" alt="Frutos do Mar" />
+        <h3>Frutos do Mar</h3>
+        <p>45% off</p>
+        <a href="#" class="btn">compre agora</a>
+      </div>
+
+      <div class="box">
+        <img src="/image/carne-opçõesvegana.png" alt="Opções Veganas" />
+        <h3>Opções Veganas</h3>
+        <p>45% off</p>
+        <a href="#" class="btn">compre agora</a>
+      </div>
+    </div>
+  </section>
+  <!-- categories section ends -->
+
+  <!-- products section starts -->
+  <section class="products" id="products">
+    <h1 class="heading">Nossos <span>Cortes</span></h1>
+
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+          <img src="/image/carne1.png" alt="Chorizo" />
+          <h3>Chorizo</h3>
+          <div class="price">R$110.00/ -- 146.85/</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne2.png" alt="Picanhas Argentinas" />
+          <h3>Picanhas Argentinas</h3>
+          <div class="price">R$94.99/ -- 109.90/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne3.png" alt="Prime Ribs Tomahawk" />
+          <h3>Prime Ribs Tomahawk</h3>
+          <div class="price">R$59.99/ -- 72.60/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne4.png" alt="T-Bone Angus" />
+          <h3>T-Bone Angus</h3>
+          <div class="price">R$176.99/ -- 106.19/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+        <div class="swiper-slide box">
+          <img src="/image/carne5.png" alt="Filé Mignon" />
+          <h3>Filé Mignon</h3>
+          <div class="price">R$89.99/ -- 101.90/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+          <img src="/image/carne-exotica1.png" alt="Avestruz" />
+          <h3>Avestruz</h3>
+          <div class="price">R$30.00/ -- 70.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-exotica2..png" alt="Jacaré" />
+          <h3>Jacaré</h3>
+          <div class="price">R$40.00/ -- 90.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-exotica3.png" alt="Rã" />
+          <h3>Rã</h3>
+          <div class="price">R$259.00/ -- 650.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-exotica4.png" alt="Cabrito" />
+          <h3>Cabrito</h3>
+          <div class="price">R$279,99/ -- 600,00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+        <div class="swiper-slide box">
+          <img src="/image/carne-exotica5.png" alt="Bufalo" />
+          <h3>Bufalo</h3>
+          <div class="price">R$94.99/ -- 109.90/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+          <img src="/image/carne-frutosdomar1.png" alt="Lagosta " />
+          <h3>Lagosta</h3>
+          <div class="price">R$400.00/ -- 500.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-frutosdomar2.png" alt="Ostra" />
+          <h3>Ostra</h3>
+          <div class="price">R$28.34/ -- 34.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-frutosdomar3.png" alt="Camarão" />
+          <h3>Camarão</h3>
+          <div class="price">R$100.00/ -- 150.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-frutosdomar4.png" alt="Caranguejo" />
+          <h3>Caranguejo</h3>
+          <div class="price">R$/ -- /kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+        <div class="swiper-slide box">
+          <img src="/image/carne-frutosdomar5.png" alt="Lula" />
+          <h3>Lula</h3>
+          <div class="price">R$20/ -- 46.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+          <img src="/image/carne-vegana1.png" alt="Carne Picada Vegana" />
+          <h3>Carne Picada Vegana</h3>
+          <div class="price">R$66,60/ -- 70,00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-vegana2.png" alt="Nuggets Vegetariano" />
+          <h3>Nuggets Vegetarianos</h3>
+          <div class="price">R$21.99/ -- 34.90/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-vegana3.png" alt="Falafel" />
+          <h3>Falafel</h3>
+          <div class="price">R$26,97/ -- 30.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+
+        <div class="swiper-slide box">
+          <img src="/image/carne-vegana4.png" alt="Habúrger Vegetariano" />
+          <h3>Hamburger Vegano</h3>
+          <div class="price">R$23,95/ -- 32.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+        <div class="swiper-slide box">
+          <img src="/image/carne-vegana5.png" alt="Salsicha Vegana" />
+          <h3>Salsicha Veganana</h3>
+          <div class="price">R$25.90/ -- 46.00/kg</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#" class="btn">adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+  </section>
+  <!-- products section ends -->
+
+  <!-- about section starts -->
+  <section class="about" id="about">
+    <h1 class="heading"><span>Quem somos</span></h1>
+    <div class="about-container">
+      <img src="/image/about.png" alt="about-image" />
+      <div class="about-text">
+        <h3>Quem Somos</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
+          maxime itaque, facere consequatur soluta nisi nesciunt sint
+          necessitatibus. Delectus vero eveniet sequi modi qui ratione magnam
+          ab perspiciatis facilis porro?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
+          perspiciatis inventore animi laborum est suscipit commodi eaque
+          veniam reprehenderit quia, hic corrupti quibusdam tenetur. Corrupti
+          deleniti fugit delectus nostrum natus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          facilis beatae ratione qui tempore temporibus! Impedit doloremque
+          explicabo dolores voluptatibus!
+        </p>
+        <a href="#" class="btn">Ver mais</a>
+      </div>
+    </div>
+  </section>
+  <!-- about section ends -->
+
+  <!-- footer section starts -->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Delícias da carne <i class="fas fa-shopping-basket"></i></h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam,
+          saepe.
+        </p>
+        <div class="share">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-github"></a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Informações de contato</h3>
+        <a href="#" class="links">
+          <i class="fas fa-phone"></i> +55 (21)9721-30412
+        </a>
+        <a href="#" class="links">
+          <i class="fas fa-envelope"></i> deliciasdacarne@gmail.com
+        </a>
+        <a href="#map" class="links">
+          <i class="fas fa-map-marker-alt"></i> Rua Voluntários da Pátria, 340
+          loja F - Botafogo - Rio de Janeiro - RJ
+        </a>
+      </div>
+
+      <div class="box">
+        <h3>Links Rápidos</h3>
+        <a href="#home" class="links">
+          <i class="fas fa-arrow-right"></i> Início
+        </a>
+        <a href="#categories" class="links">
+          <i class="fas fa-arrow-right"></i> Categorias
+        </a>
+        <a href="#prducts" class="links">
+          <i class="fas fa-arrow-right"></i> Produtos
+        </a>
+        <a href="#about" class="links">
+          <i class="fas fa-arrow-right"></i> Quem Somos
+        </a>
+      </div>
+
+      <div class="box">
+        <h3>Receber novidades</h3>
+        <p>Inscreva-se para receber novidades e promoções</p>
+        <input type="email" placeholder="your email" class="email" />
+        <input type="submit" value="Inscreva-se" class="btn" />
+      </div>
+    </div>
+  </section>
+  <!-- footer section ends -->
+
+  <!-- Swiper JS link -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- JS file link -->
+  <script src="script.js"></script>
+</body>
+
+</html>
